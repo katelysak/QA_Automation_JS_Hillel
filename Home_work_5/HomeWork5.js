@@ -134,11 +134,10 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
 */
 
 function merge(nums1, m, nums2, n) {
-    let i = m - 1; // Pointer for nums1
-    let j = n - 1; // Pointer for nums2
-    let k = m + n - 1; // Pointer for the merged array (nums1)
+    let i = m - 1;
+    let j = n - 1;
+    let k = m + n - 1;
 
-    // Compare and merge elements from the end
     while (i >= 0 && j >= 0) {
         if (nums1[i] > nums2[j]) {
             nums1[k] = nums1[i];
@@ -149,8 +148,7 @@ function merge(nums1, m, nums2, n) {
         }
         k--;
     }
-
-    // If there are remaining elements in nums2, copy them to nums1
+ 
     while (j >= 0) {
         nums1[k] = nums2[j];
         j--;
@@ -158,14 +156,13 @@ function merge(nums1, m, nums2, n) {
     }
 }
 
-// Example usage:
 let nums1_1 = [1, 2, 3, 0, 0, 0];
 let m_1 = 3;
 let nums2_1 = [2, 5, 6];
 let n_1 = 3;
 
 merge(nums1_1, m_1, nums2_1, n_1);
-console.log(nums1_1); // Output: [1, 2, 2, 3, 5, 6]
+console.log(nums1_1);           // Returns [1, 2, 2, 3, 5, 6]
 
 let nums1_2 = [1];
 let m_2 = 1;
@@ -173,7 +170,7 @@ let nums2_2 = [];
 let n_2 = 0;
 
 merge(nums1_2, m_2, nums2_2, n_2);
-console.log(nums1_2); // Output: [1]
+console.log(nums1_2);           // Returns [1]
 
 let nums1_3 = [0];
 let m_3 = 0;
@@ -181,4 +178,12 @@ let nums2_3 = [1];
 let n_3 = 1;
 
 merge(nums1_3, m_3, nums2_3, n_3);
-console.log(nums1_3); // Output: [1]
+console.log(nums1_3);           //  Returns [1]
+
+let nums1_4 = [8, 9, 13, 0, 0];
+let m_4 = 3;
+let nums2_4 = [1, 3, 4, 5, 7, 9, 15, 17];
+let n_4 = 8;
+
+merge(nums1_4, m_4, nums2_4, n_4);
+console.log(nums1_4);           // Returns [1, 3, 4, 5, 7, 8, 9, 9, 13, 15, 17]
