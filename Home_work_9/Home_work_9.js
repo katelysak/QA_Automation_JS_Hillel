@@ -51,9 +51,10 @@ let loginData = [
 
 loginData.forEach(({ email, password, result, locator }) => {
     test("Testing not valid login cases", async() => {
+        
         const browser = await chromium.launch({headless: false});
         const page = await browser.newPage();
-        // let homePage = new homePage(email, password, result, locator);
+
         await page.goto("https://www.linkedin.com/");
         await page.locator(`//*[@autocomplete="username"]`).fill(email);
         await page.locator(`//*[@name="session_password"]`).fill(password);
